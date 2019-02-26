@@ -1,6 +1,6 @@
 {
   "name": "cdt-vscode",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "CDT VS Code extension for build and language server",
   "author": "Eclipse CDT",
   "license": "EPL-2.0",
