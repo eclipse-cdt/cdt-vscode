@@ -1,0 +1,71 @@
+{
+  "name": "cdt-vscode",
+  "version": "1.0.0",
+  "description": "CDT VS Code extension for build and language server",
+  "author": "Eclipse CDT",
+  "license": "EPL-2.0",
+  "engines": {
+    "vscode": "^1.30.0"
+  },
+  "main": "dist/extension.js",
+  "activationEvents": [
+    "onLanguage:cpp",
+    "onLanguage:c",
+    "onLanguage:objective-c",
+    "onLanguage:objective-cpp"
+  ],
+  "contributes": {
+    "configuration": {
+      "title": "C/C++/Objective-C/C++ Configuration",
+      "properties": {
+        "cdt.clangd.exec": {
+          "type": "string",
+          "description": "Path to the clangd executable. Leave blank to use built-in."
+        },
+        "cdt.clangd.compileCommandsDir": {
+          "type": "string",
+          "description": "Path to directory containing compile_commands.json file. Leave blank for automatic search."
+        },
+        "cdt.clangd.arguments": {
+          "type": "array",
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "description": "Additional arguments for clangd."
+        }
+      }
+    },
+    "problemMatchers": [
+      {
+        "name": "gcc",
+        "owner": "cpp",
+        "fileLocation": [
+          "relative",
+          "${command:cdt.matcher.cwd}"
+        ],
+        "source": "build",
+        "pattern": {
+          "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error|fatal error):\\s+(.*)$",
+          "file": 1,
+          "line": 2,
+          "column": 3,
+          "severity": 4,
+          "message": 5
+        }
+      }
+    ]
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "node ./node_modules/vscode/bin/install"
+  },
+  "devDependencies": {
+    "@types/node": "^11.9.5",
+    "typescript": "^3.3.3333",
+    "vscode": "^1.1.30",
+    "vscode-languageclient": "^5.3.0-next.1"
+  }
+}
