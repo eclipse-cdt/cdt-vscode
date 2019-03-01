@@ -27,6 +27,11 @@
           "type": "string",
           "description": "Path to the clangd executable. Leave blank to use built-in."
         },
+        "cdt.clangd.backgroundIndex": {
+          "type": "boolean",
+          "description": "Enable background indexing. Disable if it consumes too many resources.",
+          "default": false
+        },
         "cdt.clangd.compileCommandsDir": {
           "type": "string",
           "description": "Path to directory containing compile_commands.json file. Leave blank for automatic search."

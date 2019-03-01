@@ -23,6 +23,10 @@ export function startLanguageServer(context: vscode.ExtensionContext) {
 
         const args: string[] = config.get('arguments', []);
 
+        if (config.get("backgroundIndex")) {
+            args.push('--background-index');
+        }
+
         let compileCommandsDir = config.get<string>('compileCommandsDir');
         if (compileCommandsDir) {
             if (!path.isAbsolute(compileCommandsDir)) {
