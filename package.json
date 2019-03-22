@@ -4,10 +4,11 @@
   "description": "CDT VS Code extension for build and language server",
   "author": "Eclipse CDT",
   "publisher": "eclipse-cdt",
+  "icon": "images/cdt_logo.png",
   "license": "EPL-2.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eclipse-cdt/cdt-vscode.git"
+    "url": "https://github.com/eclipse-cdt/cdt-vscode.git"
   },
   "engines": {
     "vscode": "^1.30.0"
