@@ -8,8 +8,9 @@
  * SPDX-License-Identifier: EPL-2.0
  *********************************************************************/
 import * as vscode from 'vscode';
-import { startLanguageServer } from './clangd';
+import { ClangdLanguageClient } from './clangd';
 
 export function activate(context: vscode.ExtensionContext) {
-    startLanguageServer(context);
+    // init the language server
+    new ClangdLanguageClient(context);
 }
