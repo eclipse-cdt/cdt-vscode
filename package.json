@@ -31,7 +31,7 @@
         "cdt.clangd.backgroundIndex": {
           "type": "boolean",
           "description": "Enable background indexing. Disable if it consumes too many resources.",
-          "default": false
+          "default": true
         },
         "cdt.clangd.compileCommandsDir": {
           "type": "string",
@@ -46,6 +46,28 @@
           "description": "Additional arguments for clangd."
         }
       }
+    },
+    "commands": [
+      {
+        "command": "cdt.typeHierarchy",
+        "title": "Open Type Hierarchy"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "resourceLangId == cpp",
+          "command": "cdt.typeHierarchy"
+        }
+      ]
+    },
+    "views": {
+      "explorer": [
+        {
+          "id": "cdt.typeHierarchyView",
+          "name": "Type Hierarchy"
+        }
+      ]
     },
     "problemMatchers": [
       {
