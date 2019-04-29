@@ -1,7 +1,7 @@
 {
   "name": "cdt-vscode",
   "version": "0.0.7",
-  "description": "CDT VS Code extension for build and language server",
+  "description": "CDT VS Code Extension for C/C++ Developers",
   "author": "Eclipse CDT",
   "publisher": "eclipse-cdt",
   "icon": "images/cdt_logo.png",
@@ -22,28 +22,18 @@
   ],
   "contributes": {
     "configuration": {
-      "title": "C/C++/Objective-C/C++ Configuration",
+      "type": "object",
+      "title": "clangd configuration",
       "properties": {
-        "cdt.clangd.exec": {
-          "type": "string",
-          "description": "Path to the clangd executable. Leave blank to use built-in."
-        },
-        "cdt.clangd.backgroundIndex": {
+        "cdt.clangd.binaries.enable": {
           "type": "boolean",
-          "description": "Enable background indexing. Disable if it consumes too many resources.",
-          "default": true
+          "default": true,
+          "description": "Download and use CDT's version of clangd"
         },
-        "cdt.clangd.compileCommandsDir": {
+        "cdt.clangd.binaries.url": {
           "type": "string",
-          "description": "Path to directory containing compile_commands.json file. Leave blank for automatic search."
-        },
-        "cdt.clangd.arguments": {
-          "type": "array",
-          "default": [],
-          "items": {
-            "type": "string"
-          },
-          "description": "Additional arguments for clangd."
+          "default": "https://github.com/dschaefer/llvm-project/releases/latest/download/",
+          "description": "Release URL for CDT's version of clangd"
         }
       }
     },
@@ -98,12 +88,22 @@
     "vsce:package": "vsce package"
   },
   "dependencies": {
+    "mkdirp": "^0.5.1",
+    "request": "^2.88.0",
+    "tar": "^4.4.8",
     "vscode-languageclient": "^5.3.0-next.1"
   },
   "devDependencies": {
+    "@types/mkdirp": "^0.5.2",
     "@types/node": "^11.9.5",
+    "@types/request": "^2.48.1",
+    "@types/tar": "^4.0.0",
     "typescript": "^3.3.3333",
     "vsce": "^1.57.1",
     "vscode": "^1.1.30"
-  }
+  },
+  "extensionDependencies": [
+    "llvm-vs-code-extensions.vscode-clangd",
+    "eclipse-cdt.cdt-gdb-vscode"
+  ]
 }
