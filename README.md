@@ -12,4 +12,13 @@ TODO
 
 ## Build
 
-[Instructions to build are on the wiki](https://github.com/eclipse-cdt/cdt-vscode/wiki/Building)
+We use yarn to as our package manager. To build, simply do
+
+```
+yarn
+yarn build
+```
+You can also run the build in watch mode using
+```
+yarn watch
+```

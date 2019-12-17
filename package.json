@@ -105,5 +105,11 @@
   "extensionDependencies": [
     "llvm-vs-code-extensions.vscode-clangd",
     "eclipse-cdt.cdt-gdb-vscode"
+  ],
+  "files": [
+    "NOTICE",
+    "LICENSE",
+    "README.md",
+    "CONTRIBUTING.md"
   ]
 }
